@@ -74,7 +74,9 @@ public class AgentSchedulerActor extends AbstractActor {
 	
 	@Override
 	public void postStop() {
-		m_task.cancel();
+		if ( m_task != null) {	
+			m_task.cancel();
+		}
 	}	
 	
 	@Override
