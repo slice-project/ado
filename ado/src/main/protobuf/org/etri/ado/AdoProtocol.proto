@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_package = "org.etri.ado";
+option optimize_for = SPEED;
+
+package org.etri.ado;
+
+message LineItem {
+	string productId = 1;
+	string title = 2;
+	int32 quantity = 3;
+}

@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+option java_package = "org.etri.ado.gateway.openai";
+option optimize_for = SPEED;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+package org.etri.ado.gateway;
+
+message AgentRef {
+	string host = 1;
+	uint32 port = 2;
+}
+
+message Agents {
+	repeated AgentRef agents = 1;
+}
+
+message Capabilities {
+	repeated string capabilities = 1;
+}
+
+message Action {
+	string capability = 1;
+	repeated float actions = 2;
+}
+
+message Observation {
+	repeated float obs = 1;
+}
+
+service ADO {
+	rpc getAgentById(google.protobuf.StringValue) returns (AgentRef) {}
+	rpc getAgentOf(Capabilities) returns (Agents) {}
+	rpc getObservation(google.protobuf.StringValue) returns (Observation) {}
+}
+
+service Agent {
+	rpc getId(google.protobuf.Empty) returns (google.protobuf.StringValue) {}
+	rpc isCapableOf(google.protobuf.StringValue) returns (google.protobuf.BoolValue) {}
+	rpc getCapabilities(google.protobuf.Empty) returns (Capabilities) {}
+	rpc setAction(Action) returns (google.protobuf.Empty) {}
+}
+
+
+
+
+
