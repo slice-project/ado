@@ -24,13 +24,13 @@ public interface ADO {
     
       public static ProtobufSerializer<com.google.protobuf.StringValue> StringValueSerializer = new GoogleProtobufSerializer<>(com.google.protobuf.StringValue.class);
     
-      public static ProtobufSerializer<org.etri.ado.gateway.openai.OpenAI.Observation> ObservationSerializer = new GoogleProtobufSerializer<>(org.etri.ado.gateway.openai.OpenAI.Observation.class);
-    
-      public static ProtobufSerializer<org.etri.ado.gateway.openai.OpenAI.Capabilities> CapabilitiesSerializer = new GoogleProtobufSerializer<>(org.etri.ado.gateway.openai.OpenAI.Capabilities.class);
-    
       public static ProtobufSerializer<org.etri.ado.gateway.openai.OpenAI.Agents> AgentsSerializer = new GoogleProtobufSerializer<>(org.etri.ado.gateway.openai.OpenAI.Agents.class);
     
+      public static ProtobufSerializer<org.etri.ado.gateway.openai.OpenAI.Observation> ObservationSerializer = new GoogleProtobufSerializer<>(org.etri.ado.gateway.openai.OpenAI.Observation.class);
+    
       public static ProtobufSerializer<org.etri.ado.gateway.openai.OpenAI.AgentRef> AgentRefSerializer = new GoogleProtobufSerializer<>(org.etri.ado.gateway.openai.OpenAI.AgentRef.class);
+    
+      public static ProtobufSerializer<org.etri.ado.gateway.openai.OpenAI.Capabilities> CapabilitiesSerializer = new GoogleProtobufSerializer<>(org.etri.ado.gateway.openai.OpenAI.Capabilities.class);
     
   }
 }

@@ -25,13 +25,13 @@ public interface Agent {
 
   public static class Serializers {
     
-      public static ProtobufSerializer<com.google.protobuf.Empty> EmptySerializer = new GoogleProtobufSerializer<>(com.google.protobuf.Empty.class);
+      public static ProtobufSerializer<com.google.protobuf.StringValue> StringValueSerializer = new GoogleProtobufSerializer<>(com.google.protobuf.StringValue.class);
     
       public static ProtobufSerializer<com.google.protobuf.BoolValue> BoolValueSerializer = new GoogleProtobufSerializer<>(com.google.protobuf.BoolValue.class);
     
       public static ProtobufSerializer<org.etri.ado.gateway.openai.OpenAI.Action> ActionSerializer = new GoogleProtobufSerializer<>(org.etri.ado.gateway.openai.OpenAI.Action.class);
     
-      public static ProtobufSerializer<com.google.protobuf.StringValue> StringValueSerializer = new GoogleProtobufSerializer<>(com.google.protobuf.StringValue.class);
+      public static ProtobufSerializer<com.google.protobuf.Empty> EmptySerializer = new GoogleProtobufSerializer<>(com.google.protobuf.Empty.class);
     
       public static ProtobufSerializer<org.etri.ado.gateway.openai.OpenAI.Capabilities> CapabilitiesSerializer = new GoogleProtobufSerializer<>(org.etri.ado.gateway.openai.OpenAI.Capabilities.class);
     
