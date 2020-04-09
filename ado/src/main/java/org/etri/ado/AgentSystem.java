@@ -93,14 +93,7 @@ public class AgentSystem {
 	public ActionStream actionStream() {
 		return m_actions;
 	}
-	
-	public Device createDevice(String uri) {
-		Device device = new Device(this);
-		device.setDeviceURI(uri);
-		
-		return device;
-	}
-	
+
 	private static Config configure(String path) {
 		Config config = ConfigFactory.load(path);
 		Config parsed = ConfigFactory.parseString("akka {\n" + 

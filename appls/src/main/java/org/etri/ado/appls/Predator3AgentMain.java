@@ -11,6 +11,7 @@ import org.etri.ado.appls.MoveDeltaXYCommander.MoveDeltaXY;
 import org.etri.ado.appls.MoveToXYCommander.MoveToXY;
 import org.etri.ado.config.Configuration;
 import org.etri.ado.device.Device;
+import org.etri.ado.device.DeviceBuilder;
 import org.etri.ado.device.emulator.EmulatorDevice;
 
 import ros.msgs.geometry_msgs.Vector3;
@@ -47,14 +48,16 @@ public class Predator3AgentMain {
 		
 		Configuration config = system.getConfiguration();	
 		String deviceUri = "ws://" + config.DEVICE_HOST + ":" + config.DEVICE_PORT;
-				
-		Device device = system.createDevice(deviceUri);
-		device.setDeviceBinding(new EmulatorDevice(1f, -1f));
 		
+		DeviceBuilder builder = DeviceBuilder.create(system);
+		builder.setDeviceURI(deviceUri);
+		builder.setDeviceBinding(new EmulatorDevice(1f, -1f));
+		builder.addActionCommander(MoveDeltaXY.class, new MoveDeltaXYCommander());
+		builder.addActionCommander(MoveToXY.class, new MoveToXYCommander());		
+		Device device = builder.build();
+		
+		device.connect();		
 		device.addContextUpdater("/waffle/current_loc", "geometry_msgs/Vector3", Vector3.class, new LocationUpdater());
-		device.addContextUpdater("/waffle/velocity", "geometry_msgs/Vector3", Vector3.class, new VelocityUpdater());
-		device.addActionCommander(MoveDeltaXY.class, new MoveDeltaXYCommander());
-		device.addActionCommander(MoveToXY.class, new MoveToXYCommander());
-		device.connect();
+		device.addContextUpdater("/waffle/velocity", "geometry_msgs/Vector3", Vector3.class, new VelocityUpdater());		
 	}
 }

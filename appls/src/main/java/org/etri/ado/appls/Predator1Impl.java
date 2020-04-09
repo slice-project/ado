@@ -22,7 +22,7 @@ public class Predator1Impl extends AbstractAgent {
 		
 		TupleSpace tuples = getTupleSpace();
 		
-		float[][] obs = new float[1][12];
+		float[][] obs = new float[1][12];		
 		
 		Optional<? extends Tuple> agent_vel = tuples.get("predator1-velocity");
 		if ( !agent_vel.isPresent() ) throw new ObservationNotFound("obs[key=predator1-velocity] is not found");
